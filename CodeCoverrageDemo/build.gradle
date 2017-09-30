@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	testCompile 'org.testng:testng:6.8.8'
+}
+
+test{
+    systemProperty "url",System.properties['url']
+	useTestNG()
+}
+
+jacocoTestReport.dependsOn test
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
+
