@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1" >
+	<listeners>
+    	<listener class-name="org.testng.reporters.EmailableReporter" />
+  	</listeners>
+	<test name="Smoke Test">
+ 		<groups>
+    		<run>
+      			<exclude name="Integration"  />
+      			<include name="Smoke"  />
+            <include name="Smoke1"  />
+    		</run>
+  		</groups>
+
+  		<classes>
+    		<class name="com.hien.ge.project.HashTest">
+    			</class>
+  		</classes>
+	</test>
+</suite>
